@@ -14,7 +14,7 @@ def main():
         request_data = request.get_json()
         file = request_data['file']
         filename = request_data['filename']
-        upload.upload(file, filename, GOOGLE_STORAGE_NAME)
+        upload.upload(file, filename, GOOGLE_STORAGE_NAME, GOOGLE_STORAGE_CREDENTIAL)
     except (Exception) as e:
         return json.dumps({'status': 'Failed to upload', 'message': str(e)}, status=400)
 
