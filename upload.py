@@ -6,7 +6,7 @@ def upload(file_base64, filename, bucket_name, creds):
     file.write(base64.b64decode(file_base64))
     file.close()
 
-    storage_client = storage.Client(credentials=creds)
+    storage_client = storage.Client.from_service_account_json(creds)
     bucket = storage_client.bucket(bucket_name)
     blob = bucket.blob(filename)
 
